@@ -9,9 +9,9 @@ import argparse
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument('-n', type=str, default='warehouse.cims.nyu.edu', help="hostname of the MySQL server")
-    parser.add_argument('-d', type=str, default='as9913_drecco', help="name of the database")
-    parser.add_argument('-u', type=str, default='as9913', help="id of the database admin")
-    parser.add_argument('-p', type=str, default='pass', help="passwd of the database admin")
+    parser.add_argument('-d', type=str, default='yt2239_drecco', help="name of the database")
+    parser.add_argument('-u', type=str, default='yt2239', help="id of the database admin")
+    parser.add_argument('-p', type=str, default='mwp3avre', help="passwd of the database admin")
     parser.add_argument('-gn', type=str, help="name of the game")
     parser.add_argument('-gp', type=str, help="folder name of the game")
 
