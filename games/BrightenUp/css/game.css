@@ -1,0 +1,15 @@
+body {
+	background: rgba(0,0,0,.05);
+}
+
+.container-fluid {
+	margin-top: 1%;
+}
+
+.game-title {
+	text-align: center;
+}
+
+input.info-input.form-control {
+	border-radius: 10px;
+}
