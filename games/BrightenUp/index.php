@@ -57,7 +57,7 @@
         <h3>Leaderboard:</h3>
         <div id="scoreArea", class="jumbotron">
             <?php
-            //include $base."getScore.php";
+            include $base."getScore.php";
             /*
             * arg1: gameName, should be the same as the dir name
             * arg2: if your score is sortable, pass 1 if higher score is better, 0
