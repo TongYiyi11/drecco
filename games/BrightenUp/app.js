@@ -156,7 +156,7 @@ function drawResultFrame(){
   let c = color(255, 215, 0, 90);
   fill(c);
   noStroke();
-  rect(width / 3 + 170, height * 4 / 5 - 10, 300, 100, 20);
+  rect(width / 3 + 170, height * 4 / 5 - 10, 320, 100, 20);
 }
 
 // return test_res: bag index, test number

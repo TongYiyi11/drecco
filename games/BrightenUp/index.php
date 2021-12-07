@@ -27,31 +27,22 @@
 
     </nav>
     <article>
-        <h1 id="gameName">No Tipping</h1>
-        <h3 id="groupName">TheRons</h3>
+        <h1 id="gameName">Brighten Up</h1>
+        <h3 id="groupName">Coco_11</h3>
         <h3>Instruction:</h3>
         <div class="jumbotron">
-            <p> You are given uniform, flat board which is <strong> m </strong> meters long weighing <strong> w </strong> kg. Consider it ranging from <strong>-m/2 </strong> to <strong> m/2 </strong>. We place two supports of equal heights at positions -3 and -1 and a 3 kilogram block at position -4. The No Tipping game is a two person game that works as follows: </p>
+            <p> You are given <strong> m </strong> bags each with <strong> n </strong> flares. Bags are divided into two groups. In specific, bags in group2 have significantly more bad flares than bags in group1. The Brighten Up game is a two person game as follows: </p >
 
-            <p> <strong> Stage 1: </strong> Two players each start with <strong> k </strong> blocks, the blocks consisting of weights 1 kg through k kg (where total number of blocks is less than length of board). The players alternate placing blocks onto the board in turns until they have no blocks remaining. If after any placement, the placed block causes the board to tip, then the player who placed the block loses. If the board never tips, the game moves on to the second stage.</p>
+            <p> <strong> Test: </strong> Each turn, the player can test up to 5% of <strong> n </strong> flares from one bag. Then, the number of bad flares will be shown.</p >
 
-            <p> <strong> Stage 2: </strong> In this stage, players remove blocks one at a time in turns. After each play, if the block that was removed causes the board to tip, the player who removed the last block loses.</p>
-
-            <p> <strong> How is Tipping Calculated? </strong> As the game proceeds, the net torque around each support is displayed. This is computed by the weight on the board * the distance to each support (board weight included). A clockwise force represents negative torque and counterclockwise represents positive torque. For no tipping to occur, the left support must be negative and the right support must be positive.</p>
-
-            <p> <strong> Rules: </strong>
-                <p> - No player may place a block on top of another</p>
-                <p> - Cannot place the same weight twice </p>
-                <p> - Cannot remove weight from unoccupied space </p>
-            </p>
+            <p> <strong> Select: </strong> The player can select up to 50% of the remaining flares from all bags, which will end his/her game. Then, his/her score will be calculated based on the number of good flares and bad flares in the selection. The player can get 100 from each of the good flares, but each of the bad flares will cost -1000.</p >
 
             <p> <strong> Instructions </strong>
-                <p> - Press pop-up to access game window. </p>
-                <p> - ADDING PHASE: When it is your turn (player 1), click on the weight number located near your name, and then on a 'tick' on the board to select the position to place this weight. Then click "submit move" to end your turn. </p>
-                <p> - REMOVING PHASE: Select a 'tick' on the board to indicate which position you want to remove a weight from. Then click "submit move" to end your turn. </p>
-            </p>
+                <p> - Press pop-up to access game window. </p >
+                <p> - When it is your turn (player 1), fill in the number you want to test/select under the bag, then click "Test"/"Select" at the bottom. When you finish, click "Next" to end your turn. </p >
+            </p >
 
-            <p> <strong> Note: </strong> For best experience, maximize window as much as possible. </p>
+            <p> <strong> Note: </strong> For best experience, maximize window as much as possible. </p >
         </div>
 
         <h3>Leaderboard:</h3>
