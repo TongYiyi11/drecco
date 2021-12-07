@@ -13,3 +13,7 @@ body {
 input.info-input.form-control {
 	border-radius: 10px;
 }
+
+#game-container{
+	position: relative;
+}
