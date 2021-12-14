@@ -1,1 +1,5 @@
 database password: mwp3avre
+
+Rule: take turn to play the game (either test or select), manually end game
+Display: bags in circle, show rules and user information when playing
+Spelling: eg. The score...
