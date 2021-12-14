@@ -54,18 +54,18 @@
             * arg2: if your score is sortable, pass 1 if higher score is better, 0
             *       if smaller score is better. Otherwise no need to pass variable
             */
-            getScore("No Tipping");
+//             getScore("No Tipping");
             ?>
         </div>
         <h3>Play game in pop up window:<h3>
         <form id="gameSettings" class="well"></form>
         <h4>Screenshot:</h4>
-        <img src="./games/NoTipping/NoTipping.png" width="100%" heigth="100%"></img>
+        <img src="./games/BrightenUp/BrightenUp.png" width="100%" heigth="100%"></img>
     </article>
     <?php include $base."footer.php"; ?>
 </div>
 <script type="text/javascript">
-    newWindowBtn(1000,1000,"./games/NoTipping/game.html",[]);
+    newWindowBtn(1000,1000,"./games/BrightenUp/index.html",[]);
 </script>
 </body>
 </html>
