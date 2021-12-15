@@ -368,7 +368,7 @@ class Player {
 
 class Bag {
     constructor(num, percent) {
-        this.badFlares = num * percent / 10;
+        this.badFlares = num * percent / 100;
         this.goodFlares = num - this.badFlares;
     }
 
@@ -446,19 +446,19 @@ class Game {
   testFlares(i, k, s=false) {
       var bag = this.bags[i];
       var n = bag.badFlares + bag.goodFlares;
-      if (!s && n == 0) {
-          alert("This bag is empty! Choose another one.");
+      if (k > n) {
+          alert("There are not enough flares in the choosen bag(s)");
           return [-1,-1];
       } else if (!s && k > this.numFlares/20) {
           alert("Cannot test more than 5% of flares per bag!");
           return [-1,-1];
       }
-      n = Math.min(k, n);
+      //k = Math.min(k, n);
       var res = 0;
-      for (let j = 0; j < n; ++j) {
+      for (let j = 0; j < k; ++j) {
             res += bag.testFlare();
       }
-      this.remainFlares -= k
+      this.remainFlares -= k;
       return [res, k-res];
   }
 
@@ -467,15 +467,21 @@ class Game {
       for (let i = 0; i < this.bags.length; ++i) {
           sum += a[i];
       }
-      if (sum > this.numFlares/2) {
+      if (sum > this.remainFlares/2) {
           alert("Cannot select more than 50% of flares in total!");
           return -1;
       }
       var score = 0;
+      var nums = new Array(this.bags.length);
       for (let i = 0; i < this.bags.length; ++i) {
-          var nums = this.testFlares(i, a[i], true);
-          score -= nums[0] * 1000;
-          score += nums[1] * 100;
+        nums[i] = this.testFlares(i, a[i], true);
+        if (nums[i][0] == -1) {
+          return -1;
+        }
+      }
+      for (let i = 0; i < this.bags.length; ++i) {
+          score -= nums[i][0] * 1000;
+          score += nums[i][1] * 100;
       }
       this.players[this.currentTurn].finalScore += score;
       return score;
