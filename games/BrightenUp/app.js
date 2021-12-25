@@ -29,6 +29,8 @@ function setup() {
   width = document.getElementById('game-container').offsetWidth - 100;
   containerHeight = window.innerHeight;
   height = width * 3 / 4 - width / 6;
+  width = 900;
+  height = 400;
   canvas = createCanvas(width, Math.max(height, containerHeight * 3 / 4)); // ~4:3 aspect ratio
   canvas.parent('game-container');
 }
@@ -50,6 +52,7 @@ function draw() {
     drawEndResult();
     drawFinalResult();
     drawRules();
+    drawTurn();
   }
 }
 
@@ -153,19 +156,19 @@ function drawTextFrame(){
   let c = color(255, 215, 0, 50);
   fill(c);
   noStroke();
-  rect(width / 3 + 200, height * 4 / 5 - 10, 300, 100, 20);
+  rect(width / 3 + 250, height * 4 / 5 - 10, 300, 100, 20);
 
   // frame for rules
   c = color(240, 255, 255, 80);
   fill(c);
   noStroke();
-  rect(width / 3 + 250, height * 1 / 5 - 20, 240, 280, 20);
+  rect(width / 3 + 300, height * 1 / 5 - 20, 240, 280, 20);
 
   // frame for total scores
   c = color(132, 112, 255, 50);
   fill(c);
   noStroke();
-  temp_x = width / 3 + 200;
+  temp_x = width / 3 + 250;
   temp_y = height * 1 / 5 - 90;
   rect(temp_x, temp_y, 300, 60, 20);
   // total scores
@@ -256,14 +259,23 @@ function updateEndResult(){
   restore_input();
 }
 
+function drawTurn(){
+  stroke(100);
+  fill(100);
+  strokeWeight(1);
+  textSize(16);
+  player = game.players[game.currentTurn].name;
+  text(player + '\'s turn', 30, 30);
+}
+
 function drawTestResult(){
   if(draw_test_flag){
     stroke('#7cb5e9');
     fill('#7cb5e9');
     strokeWeight(1);
     textSize(16);
-    text('Test Result for ' + current_player + ': ', width / 3 + 220, height * 4 / 5 + 20);
-    text(bad_flares + ' Bad Flare(s)!', width / 3 + 270, height * 4 / 5 + 60);
+    text('Test Result for ' + current_player + ': ', width / 3 + 270, height * 4 / 5 + 20);
+    text(bad_flares + ' Bad Flare(s)!', width / 3 + 320, height * 4 / 5 + 60);
   }
 }
 
@@ -274,11 +286,11 @@ function drawSelectResult(){
     fill('#FF6A6A');
     strokeWeight(1);
     textSize(16);
-    text('Select Result for ' + current_player + ': ', width / 3 + 220, height * 4 / 5 + 20);
+    text('Select Result for ' + current_player + ': ', width / 3 + 270, height * 4 / 5 + 20);
     if(score >= 0){
-      text(current_player + ' wins ' + score + " points!", width / 3 + 250, height * 4 / 5 + 60);
+      text(current_player + ' wins ' + score + " points!", width / 3 + 300, height * 4 / 5 + 60);
     }else{
-      text(current_player + ' loses ' + -score + " points!", width / 3 + 250, height * 4 / 5 + 60);
+      text(current_player + ' loses ' + -score + " points!", width / 3 + 300, height * 4 / 5 + 60);
     }
   }
 
@@ -291,7 +303,7 @@ function drawEndResult(){
     fill('#8470FF');
     strokeWeight(1);
     textSize(16);
-    text(current_player + ' stops his/her operations!', width / 3 + 220, height * 4 / 5 + 50);
+    text(current_player + ' stops his/her operations!', width / 3 + 270, height * 4 / 5 + 50);
   }
 }
 
@@ -303,12 +315,12 @@ function drawFinalResult(){
     textSize(16);
     p1 = game.players[0];
     p2 = game.players[1];
-    text('Final Result: ', width / 3 + 220, height * 4 / 5 + 30);
+    text('Final Result: ', width / 3 + 270, height * 4 / 5 + 30);
     if(p1.finalScore == p2.finalScore){
-      text(" Two Players Tied!", width / 3 + 270, height * 4 / 5 + 60);
+      text(" Two Players Tied!", width / 3 + 320, height * 4 / 5 + 60);
     }else{
       winner = p1.finalScore > p2.finalScore ? p1 : p2;
-      text(winner.name + " Wins!", width / 3 + 270, height * 4 / 5 + 60);
+      text(winner.name + " Wins!", width / 3 + 320, height * 4 / 5 + 60);
     }
   }
 }
@@ -316,7 +328,7 @@ function drawFinalResult(){
 function drawRules(){
   stroke(100);
   fill(100);
-  x = width / 3 + 250;
+  x = width / 3 + 300;
   y = height * 1 / 5 - 20;
   strokeWeight(1);
   textSize(18);
@@ -324,8 +336,8 @@ function drawRules(){
   strokeWeight(0.5);
   textSize(16);
   textLeading(25);
-  testFlares = game.numFlares * 0.05;
-  selectFlares = Math.floor(game.remainFlares * 0.5);
+  testFlares = Math.floor(game.numFlares * 0.05);
+  selectFlares = Math.max(Math.floor(game.remainFlares * 0.5), 1);
   rules = `1. Up to ${testFlares} flares from one bag can be tested.\n2. Up to ${selectFlares} of the remaining flares from all bags can be selected.\n3. Good Flare: +100 points; Bad Flare: -1000 points.`;
   text(rules, x + 10, y + 50, 230, 300);
 }
@@ -368,7 +380,7 @@ class Player {
 
 class Bag {
     constructor(num, percent) {
-        this.badFlares = num * percent / 100;
+        this.badFlares = Math.floor(num * percent / 100);
         this.goodFlares = num - this.badFlares;
     }
 
@@ -449,7 +461,7 @@ class Game {
       if (k > n) {
           alert("There are not enough flares in the choosen bag(s)");
           return [-1,-1];
-      } else if (!s && k > this.numFlares/20) {
+      } else if (!s && k > Math.floor(this.numFlares/20)) {
           alert("Cannot test more than 5% of flares per bag!");
           return [-1,-1];
       }
@@ -467,7 +479,7 @@ class Game {
       for (let i = 0; i < this.bags.length; ++i) {
           sum += a[i];
       }
-      if (sum > this.remainFlares/2) {
+      if (this.remainFlares > 1 && sum > Math.floor(this.remainFlares/2)) {
           alert("Cannot select more than 50% of flares in total!");
           return -1;
       }

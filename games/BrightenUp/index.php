@@ -53,7 +53,7 @@
     <?php include $base."footer.php"; ?>
 </div>
 <script type="text/javascript">
-    newWindowBtn(1200,900,"./games/BrightenUp/index.html",[]);
+    newWindowBtn(1300,900,"./games/BrightenUp/index.html",[]);
 </script>
 </body>
 </html>

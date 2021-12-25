@@ -18,16 +18,16 @@
               <form class = "col-sm-3 card p-3 bg-light">
                 <div class="mb-3">
                     <label for="player-1"> Player 1 Name </label>
-                    <input type="text" class="form-control info-input" id="player-1" value="Player 1">
+                    <input autocomplete=off type="text" class="form-control info-input" id="player-1" value="Player 1">
                 </div>
                 <div class="mb-3">
                     <label for="player-2"> Player 2 Name </label>
-                    <input type="text" class="form-control info-input" id="player-2" value="Player 2">
+                    <input autocomplete=off type="text" class="form-control info-input" id="player-2" value="Player 2">
                 </div>
                 <div class="mb-3">
                     <label for="number-of-flares" class="form-label">Number of Flares in Each Bag: </label>
-                    <span id="number-of-flares-value"> 200 </span>
-                    <input type="range" class="form-range" min="100" max="300" step="20" id="number-of-flares"
+                    <span id="number-of-flares-value"> 151 </span>
+                    <input autocomplete=off type="range" class="form-range" min="1" max="300" step="1" id="number-of-flares"
                     onChange="document.getElementById('number-of-flares-value').innerText = document.getElementById('number-of-flares').value">
                 </div>
                 <div class="row mb-3">
@@ -37,28 +37,28 @@
                 </div> 
                 <div class="row mb-3">
                     <div class="col">Group1</div>
-                    <select class="form-select form-select-sm col me-2" id="bag-num-type1" aria-label="bag-num-type1">
+                    <select autocomplete=off class="form-select form-select-sm col me-2" id="bag-num-type1" aria-label="bag-num-type1">
                         <option value="1">1</option>
                         <option value="2" selected="selected">2</option>
                         <option value="3">3</option>
                         <option value="4">4</option>
                         <option value="5">5</option>
                     </select>
-                    <select class="form-select form-select-sm col" id="bag-percent-type1" aria-label="bag-percent-type1">
+                    <select autocomplete=off class="form-select form-select-sm col" id="bag-percent-type1" aria-label="bag-percent-type1">
                         <option value="0" selected="selected">0</option>
                         <option value="5">5</option>
                     </select>
                 </div>
                 <div class="row mb-3">
                     <div class="col">Group2</div>
-                    <select class="form-select form-select-sm col me-2" id="bag-num-type2" aria-label="bag-num-type2">
+                    <select autocomplete=off class="form-select form-select-sm col me-2" id="bag-num-type2" aria-label="bag-num-type2">
                         <option value="1">1</option>
                         <option value="2" selected="selected">2</option>
                         <option value="3">3</option>
                         <option value="4">4</option>
                         <option value="5">5</option>
                     </select>
-                    <select class="form-select form-select-sm col" id="bag-percent-type2" aria-label="bag-percent-type2">
+                    <select autocomplete=off class="form-select form-select-sm col" id="bag-percent-type2" aria-label="bag-percent-type2">
                         <option value="15" selected="selected">15</option>
                         <option value="20">20</option>
                     </select>
